@@ -1,0 +1,8 @@
+/thirdpartyRequests/transactions:
+  post:
+    $ref: './thirdpartyRequests/transactions/post.yaml'
+/thirdpartyRequests/transactions/{ID}/authorization:
+  post:
+    $ref: './thirdpartyRequests/transactions/{ID}/authorizations/post.yaml'
+  put:
+    $ref: './thirdpartyRequests/transactions/{ID}/authorizations/put.yaml'

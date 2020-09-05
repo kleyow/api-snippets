@@ -1,0 +1,54 @@
+tags:
+  - thirdpartyRequests
+  - sampled
+operationId: VerifyThirdPartyAuthorization
+summary: VerifyThirdPartyAuthorization
+description: |
+  The HTTP request `POST /thirdpartyRequests/transactions/{id}/authorizations` is used by the DFSP to verify a third party authorization.
+parameters:
+  #Path
+  - $ref: '../../../../../../../v1.0/openapi3/parameters/ID.yaml'
+  #Headers
+  - $ref: '../../../../../../../v1.0/openapi3/parameters/Accept.yaml'
+  - $ref: '../../../../../../../v1.0/openapi3/parameters/Content-Length.yaml'
+  - $ref: '../../../../../../../v1.0/openapi3/parameters/Content-Type.yaml'
+  - $ref: '../../../../../../../v1.0/openapi3/parameters/Date.yaml'
+  - $ref: '../../../../../../../v1.0/openapi3/parameters/X-Forwarded-For.yaml'
+  - $ref: '../../../../../../../v1.0/openapi3/parameters/FSPIOP-Source.yaml'
+  - $ref: '../../../../../../../v1.0/openapi3/parameters/FSPIOP-Destination.yaml'
+  - $ref: '../../../../../../../v1.0/openapi3/parameters/FSPIOP-Encryption.yaml'
+  - $ref: '../../../../../../../v1.0/openapi3/parameters/FSPIOP-Signature.yaml'
+  - $ref: '../../../../../../../v1.0/openapi3/parameters/FSPIOP-URI.yaml'
+  - $ref: '../../../../../../../v1.0/openapi3/parameters/FSPIOP-HTTP-Method.yaml'
+requestBody:
+  description: The thirdparty authorization details to verify
+  required: true
+  content:
+    application/json:
+      schema:
+        $ref: '../../../../../schemas/ThirdpartyAuthorizationIDPostRequest.yaml'
+      example:
+        challenge: '<QuoteResponse object>'
+        value: '<base64 encoded binary - the signed quote response object>'
+        consentId: '8d34f91d-d078-4077-8263-2c0498dhbjr'
+        sourceAccountId: 'dfspa.alice.1234'
+        status: 'PENDING'
+responses:
+  202:
+    $ref: '../../../../../../../v1.0/openapi3/responses/index.yaml#/202'
+  400:
+    $ref: '../../../../../../../v1.0/openapi3/responses/index.yaml#/400'
+  401:
+    $ref: '../../../../../../../v1.0/openapi3/responses/index.yaml#/401'
+  403:
+    $ref: '../../../../../../../v1.0/openapi3/responses/index.yaml#/403'
+  404:
+    $ref: '../../../../../../../v1.0/openapi3/responses/index.yaml#/404'
+  405:
+    $ref: '../../../../../../../v1.0/openapi3/responses/index.yaml#/405'
+  406:
+    $ref: '../../../../../../../v1.0/openapi3/responses/index.yaml#/406'
+  501:
+    $ref: '../../../../../../../v1.0/openapi3/responses/index.yaml#/501'
+  503:
+    $ref: '../../../../../../../v1.0/openapi3/responses/index.yaml#/503'
